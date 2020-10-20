@@ -54,6 +54,7 @@ body {
 
 .btn-key {
   width: 75px;
+  font-size: 18px;
   background-color: #44a0a1;
   border: none;
   color: white;
@@ -62,6 +63,7 @@ body {
 
 .btn-key2 {
   width: 225px;
+  font-size: 18px;
   background-color: #44a0a1;
   border: none;
   color: white;
@@ -79,7 +81,7 @@ body {
 }
 
 .btn-arith {
-  background-color: #f77b7d;
+  background-color: #f77b8c;
 }
 
 .btn-arith:hover {
@@ -98,7 +100,7 @@ body {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
-  width: 100%;
+  width: 97%;
   height: 100px;
   font-size: 50px;
 }
