@@ -30,20 +30,56 @@ document.addEventListener('DOMContentLoaded', () => {
   key9.values = '9'
   key0.values = '0'
   
-   
-  result.textContent = '0'
-  
+  result.innerHTML = '0'
+
   function toCut() {
-    result.textContent = '0'
+    result.innerHTML = '0'
   }
 
-  function result1(key) {
-    keyDisplay = key.values
-    key.addEventListener('click', result1(keyDisplay) )
+  function replaceNull() {
+    if (result.textContent === '0') {
+      result.textContent = ''
+    }
   }
-
   
+  function toKey(key) {
+    replaceNull()
+    keyDisplay = key.values
+    result.innerHTML += keyDisplay
+  }
+
+  function toA() {
+    a = Number(result.textContent)
+    console.log(a)
+    result.innerHTML = ''
+  }
+
+  function toSum() {
+    b = Number(result.textContent)
+    console.log(b)
+    result.innerHTML = a + b
+  }
+
+  function toSub() {
+    b = Number(result.textContent)
+    console.log(b)
+    result.innerHTML = a - b
+  }
+
   keyCut.addEventListener('click', toCut)
-  //result1(key1)
-  console.log(key7.values)
+  key1.addEventListener('click', () => toKey(key1))
+  key2.addEventListener('click', () => toKey(key2))
+  key3.addEventListener('click', () => toKey(key3))
+  key4.addEventListener('click', () => toKey(key4))
+  key5.addEventListener('click', () => toKey(key5))
+  key6.addEventListener('click', () => toKey(key6))
+  key7.addEventListener('click', () => toKey(key7))
+  key8.addEventListener('click', () => toKey(key8))
+  key9.addEventListener('click', () => toKey(key9))
+  key0.addEventListener('click', () => toKey(key0))
+
+  keyPlus.addEventListener('click', toA) // Плюс
+  keyPlus.addEventListener('click', toA) // Минус
+  keyEquals.addEventListener('click', toSum) // Равно
+  
 })
