@@ -1,4 +1,6 @@
+// Вешаем событие, выполняющееся после полной загрузки страницы
 document.addEventListener('DOMContentLoaded', () => {
+  // Превращаем классы из HTML в переменные
   let key1 = document.querySelector('.key1')
   let key2 = document.querySelector('.key2')
   let key3 = document.querySelector('.key3')
@@ -17,8 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
   let keyMinus = document.querySelector('.keyMinus')
   let keyEquals = document.querySelector('.keyEquals')
   let keyCircle = document.querySelector('.keyCircle')
-  let result = document.querySelector('.result')
-
+  let resultBlock = document.querySelector('.result')
+  
+  // Прописываем значения числовых кнопок
   key1.values = '1'
   key2.values = '2'
   key3.values = '3'
@@ -29,43 +32,46 @@ document.addEventListener('DOMContentLoaded', () => {
   key8.values = '8'
   key9.values = '9'
   key0.values = '0'
-  
-  result.innerHTML = '0'
+  resultBlock.innerHTML = '0'
 
+  // Прописываем значения функциональных кнопок
+  keyPlus.values = '+'
+  keyMinus.values = '-'
+  keyDivide.values = '/'
+  keyStar.values = '*'
+  //keyPercentage.values 
+  keyCircle.values  = '.'
+
+  // Создаем функцию для кнопки "Очистить", при нажатии на кнопку, на экране выводится 0
   function toCut() {
-    result.innerHTML = '0'
+    resultBlock.innerHTML = '0'
   }
 
+  // Создаем функцию, убирающую 0 при вводе значений
   function replaceNull() {
-    if (result.textContent === '0') {
-      result.textContent = ''
+    if (resultBlock.textContent === '0') {
+      resultBlock.textContent = ''
     }
   }
   
+  // Создаем функцию, которая выводит значения числовых кнопок на экран
   function toKey(key) {
     replaceNull()
     keyDisplay = key.values
-    result.innerHTML += keyDisplay
+    resultBlock.innerHTML += keyDisplay
   }
 
-  function toA() {
-    a = Number(result.textContent)
-    console.log(a)
-    result.innerHTML = ''
+  // Создаем функцию, которая при нажатии на "+" забирает первое и второе число и складывает их
+  // возвращая переменную с результатом
+  function toEquals() {
+    result = resultBlock.innerHTML
+    resultBlock.innerHTML = eval(result)
   }
 
-  function toSum() {
-    b = Number(result.textContent)
-    console.log(b)
-    result.innerHTML = a + b
-  }
+  // Создаем функцию, которая при нажатии на "=", выводит на экран результат
+  
 
-  function toSub() {
-    b = Number(result.textContent)
-    console.log(b)
-    result.innerHTML = a - b
-  }
-
+  // Привязываем к кнопкам событие, реагирующее на нажатие, для вывода кнопок на экран
   keyCut.addEventListener('click', toCut)
   key1.addEventListener('click', () => toKey(key1))
   key2.addEventListener('click', () => toKey(key2))
@@ -77,9 +83,11 @@ document.addEventListener('DOMContentLoaded', () => {
   key8.addEventListener('click', () => toKey(key8))
   key9.addEventListener('click', () => toKey(key9))
   key0.addEventListener('click', () => toKey(key0))
-
-  keyPlus.addEventListener('click', toA) // Плюс
-  keyPlus.addEventListener('click', toA) // Минус
-  keyEquals.addEventListener('click', toSum) // Равно
+  keyPlus.addEventListener('click', () => toKey(keyPlus)) // Плюс
+  keyMinus.addEventListener('click', () => toKey(keyMinus))
+  keyDivide.addEventListener('click', () => toKey(keyDivide))
+  keyStar.addEventListener('click', () => toKey(keyStar))
+  keyCircle.addEventListener('click', () => toKey(keyCircle))
+  keyEquals.addEventListener('click', toEquals) // Равно
   
 })
