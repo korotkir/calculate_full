@@ -39,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
   keyMinus.values = '-'
   keyDivide.values = '/'
   keyStar.values = '*'
-  keyPercentage.values  = 'Dont work'
   keyCircle.values  = '.'
 
   // Создаем функцию, изменяющую размер шрифта в зависимости от их количества
