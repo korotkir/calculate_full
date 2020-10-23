@@ -60,6 +60,7 @@ body {
   border: none;
   outline: none;
   color: white;
+  margin: 0px;
 }
 
 .btn-key2 {
@@ -71,6 +72,7 @@ body {
   border-radius: 0 0 0 20px;
   outline: none;
   color: white;
+  margin: 0px;
 }
 
 .btn-key2:hover, .btn-key:hover {

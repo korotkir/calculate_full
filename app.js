@@ -83,11 +83,11 @@ document.addEventListener('DOMContentLoaded', () => {
   key8.addEventListener('click', () => toKey(key8))
   key9.addEventListener('click', () => toKey(key9))
   key0.addEventListener('click', () => toKey(key0))
-  keyPlus.addEventListener('click', () => toKey(keyPlus)) // Плюс
+  keyPlus.addEventListener('click', () => toKey(keyPlus)) 
   keyMinus.addEventListener('click', () => toKey(keyMinus))
   keyDivide.addEventListener('click', () => toKey(keyDivide))
   keyStar.addEventListener('click', () => toKey(keyStar))
   keyCircle.addEventListener('click', () => toKey(keyCircle))
-  keyEquals.addEventListener('click', toEquals) // Равно
+  keyEquals.addEventListener('click', toEquals) 
   
 })
