@@ -39,12 +39,26 @@ document.addEventListener('DOMContentLoaded', () => {
   keyMinus.values = '-'
   keyDivide.values = '/'
   keyStar.values = '*'
-  //keyPercentage.values 
+  keyPercentage.values  = 'Dont work'
   keyCircle.values  = '.'
+
+  // Создаем функцию, изменяющую размер шрифта в зависимости от их количества
+  function toSymb() {
+    if (resultBlock.innerHTML.length <= 11) {
+      resultBlock.style.fontSize = '50px'
+    } else if (resultBlock.innerHTML.length <= 13)  {
+      resultBlock.style.fontSize = '42px'
+    } else if (resultBlock.innerHTML.length <= 18) {
+      resultBlock.style.fontSize = '30px'
+    } else {
+      resultBlock.style.fontSize = '25px'
+    }
+  }
 
   // Создаем функцию для кнопки "Очистить", при нажатии на кнопку, на экране выводится 0
   function toCut() {
     resultBlock.innerHTML = '0'
+    toSymb()
   }
 
   // Создаем функцию, убирающую 0 при вводе значений
@@ -59,6 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
     replaceNull()
     keyDisplay = key.values
     resultBlock.innerHTML += keyDisplay
+    toSymb()
   }
 
   // Создаем функцию, которая при нажатии на "+" забирает первое и второе число и складывает их
@@ -66,11 +81,9 @@ document.addEventListener('DOMContentLoaded', () => {
   function toEquals() {
     result = resultBlock.innerHTML
     resultBlock.innerHTML = eval(result)
+    toSymb()
   }
-
-  // Создаем функцию, которая при нажатии на "=", выводит на экран результат
   
-
   // Привязываем к кнопкам событие, реагирующее на нажатие, для вывода кнопок на экран
   keyCut.addEventListener('click', toCut)
   key1.addEventListener('click', () => toKey(key1))
@@ -83,11 +96,11 @@ document.addEventListener('DOMContentLoaded', () => {
   key8.addEventListener('click', () => toKey(key8))
   key9.addEventListener('click', () => toKey(key9))
   key0.addEventListener('click', () => toKey(key0))
+  keyPercentage.addEventListener('click', () => toKey(keyPercentage))
   keyPlus.addEventListener('click', () => toKey(keyPlus)) 
   keyMinus.addEventListener('click', () => toKey(keyMinus))
   keyDivide.addEventListener('click', () => toKey(keyDivide))
   keyStar.addEventListener('click', () => toKey(keyStar))
   keyCircle.addEventListener('click', () => toKey(keyCircle))
   keyEquals.addEventListener('click', toEquals) 
-  
 })
