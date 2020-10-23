@@ -76,6 +76,15 @@ document.addEventListener('DOMContentLoaded', () => {
     toSymb()
   }
 
+  // Создаем функцию, которая считает процент
+  function toPercentage() {
+    block = resultBlock.innerHTML
+    arr = block.split(/\+|-|\*/)
+    percentage = arr[0] * arr[1] / 100
+    resultBlock.innerHTML = percentage
+    toSymb()
+  }
+
   // Создаем функцию, которая при нажатии на "+" забирает первое и второе число и складывает их
   // возвращая переменную с результатом
   function toEquals() {
@@ -96,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
   key8.addEventListener('click', () => toKey(key8))
   key9.addEventListener('click', () => toKey(key9))
   key0.addEventListener('click', () => toKey(key0))
-  keyPercentage.addEventListener('click', () => toKey(keyPercentage))
+  keyPercentage.addEventListener('click', toPercentage)
   keyPlus.addEventListener('click', () => toKey(keyPlus)) 
   keyMinus.addEventListener('click', () => toKey(keyMinus))
   keyDivide.addEventListener('click', () => toKey(keyDivide))

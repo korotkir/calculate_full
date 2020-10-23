@@ -77,6 +77,10 @@ body {
 
 .btn-key2:hover, .btn-key:hover {
   background-color: #33797a;
+  -webkit-transition: .2s ease-out;
+  transition: .2s ease-out;
+  -webkit-transition-delay: 0.2s;
+          transition-delay: 0.2s;
 }
 
 .rad {
